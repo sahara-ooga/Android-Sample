@@ -1,2 +1,2 @@
 # Android-Sample
-Samples which feature some android feature
+Samples which show some android function.
