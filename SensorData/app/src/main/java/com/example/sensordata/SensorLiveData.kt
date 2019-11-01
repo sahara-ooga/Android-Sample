@@ -92,7 +92,7 @@ class SensorLiveData(
                             value?.stepDetector = SensorEventObject(sensorEvent)
 
                         else ->
-                            println("aaaa")
+                            println("undefined sensor")
                     }
                 }
             }
