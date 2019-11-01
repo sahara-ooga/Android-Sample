@@ -37,5 +37,17 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
+    override fun onPause() {
+        super.onPause()
+
+        this.viewModel.sensorLiveData.value?.let { sensorData ->
+            // Do something with sensor data
+            val accelerometer = sensorData.accelerometer
+            println("accelerometer")
+            println(accelerometer?.values?.get(0))
+            println(accelerometer?.values?.get(0))
+            println(accelerometer?.values?.get(0))
+            println(accelerometer?.accuracy)
+        }
     }
 }
