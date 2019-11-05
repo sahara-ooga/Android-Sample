@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             Observer { value ->
 //                println("changed!")
 //                value.accelerometer?.let {// this accelerometer is null, so this block does not run.😅
-//                    log(it)
+//                    SensorUtil.log(it)
 //                }
             }
         )
@@ -38,25 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         this.viewModel.sensorLiveData.value?.let { sensorData ->
             // Do something with sensor data
-            sensorData.accelerometer?.let { log(it) }
+            sensorData.accelerometer?.let { SensorUtil.log(it) }
         }
     }
-}
-
-fun log(accelerometer: SensorEventObject) {
-    println("********accelerometer**********")
-
-    println("value: ")
-    println(accelerometer.values[0])
-    println(accelerometer.values[1])
-    println(accelerometer.values[2])
-
-    println("accuracy: ${accelerometer.accuracy}")
-
-    println("timestamp: ${accelerometer.timestamp}")
-
-    val date = Date(accelerometer.timestamp)
-    println("timestamp date: ${date}")
-
-    println("* * * * * * * * * * * * * * * *")
 }

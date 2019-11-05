@@ -1,6 +1,7 @@
 package com.example.sensordata
 
 import android.hardware.Sensor
+import java.util.*
 
 class SensorUtil {
     val sensorNumbers = arrayOf(
@@ -34,4 +35,23 @@ class SensorUtil {
         Sensor.TYPE_STEP_DETECTOR
 ///        Sensor.TYPE_AMBIENT_TEMPERATURE
     )
+    companion object {
+        fun log(accelerometer: SensorEventObject) {
+            println("********accelerometer**********")
+
+            println("value: ")
+            println(accelerometer.values[0])
+            println(accelerometer.values[1])
+            println(accelerometer.values[2])
+
+            println("accuracy: ${accelerometer.accuracy}")
+
+            println("timestamp: ${accelerometer.timestamp}")
+
+            val date = Date(accelerometer.timestamp)
+            println("timestamp date: ${date}")
+
+            println("* * * * * * * * * * * * * * * *")
+        }
+    }
 }
