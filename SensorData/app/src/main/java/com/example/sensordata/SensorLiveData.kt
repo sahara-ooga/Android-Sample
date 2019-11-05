@@ -94,7 +94,7 @@ class SensorLiveData(
                             value?.stepDetector = SensorEventObject(sensorEvent)
 
                         else ->
-                            println("undefined sensor")
+                            println("undefined sensor: ${sensorEvent.sensor.type}")
                     }
                 }
             }
