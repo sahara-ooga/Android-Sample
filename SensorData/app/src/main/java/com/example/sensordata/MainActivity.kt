@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
@@ -11,6 +12,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        textView.text = "sensor data updated!"
 
         //ViewModelの初期化時に渡す引数は、ViewModelProvider.Factoryのサブクラスを使って指定する
         val viewModelFactory = MainViewModelFactory(this.applicationContext)
@@ -21,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             this,
             Observer { value ->
                 if (value == null) return@Observer
-
                 println("sensor data updated!")
 
                 val accuracy = this.viewModel.sensorLiveData.value?.accelerometer?.accuracy

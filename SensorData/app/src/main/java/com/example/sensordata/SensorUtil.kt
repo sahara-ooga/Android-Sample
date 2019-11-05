@@ -6,7 +6,7 @@ class SensorUtil {
     val sensorNumbers = arrayOf(
         Sensor.TYPE_ACCELEROMETER,
         Sensor.TYPE_ACCELEROMETER_UNCALIBRATED,//this require minimal api 26
-        Sensor.TYPE_ALL,
+//        Sensor.TYPE_ALL,
         Sensor.TYPE_AMBIENT_TEMPERATURE,
         Sensor.TYPE_DEVICE_PRIVATE_BASE,
         Sensor.TYPE_GAME_ROTATION_VECTOR,
