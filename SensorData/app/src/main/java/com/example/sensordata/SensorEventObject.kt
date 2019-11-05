@@ -10,8 +10,11 @@ class SensorEventObject(event: SensorEvent) {
         SENSOR_STATUS_ACCURACY_HIGH -> Accuracy.HIGH
         else -> Accuracy.UNKNOWN
     }
-    val timestamp: Long = event.timestamp
-    val values: FloatArray = event.values
+
+    //FIXME: 両方null
+    val timestamp: Long =
+        System.currentTimeMillis() + (event.timestamp - System.nanoTime()) //experimental. see https://stackoverflow.com/questions/5500765/accelerometer-sensorevent-timestamp
+    val values: FloatArray = event.values.copyOf()
 
     /*
     * Sensor Accuracy Object
