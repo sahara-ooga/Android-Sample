@@ -1,10 +1,12 @@
 package com.example.sensordata
 
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
@@ -23,20 +25,12 @@ class MainActivity : AppCompatActivity() {
         this.viewModel.sensorLiveData.observe(
             this,
             Observer { value ->
-                if (value == null) return@Observer
-                println("sensor data updated!")
-
-                val accuracy = this.viewModel.sensorLiveData.value?.accelerometer?.accuracy
-                val timestamp = this.viewModel.sensorLiveData.value?.accelerometer?.timestamp
-                val values = this.viewModel.sensorLiveData.value?.accelerometer?.values
-
-                println("accuracy is ${accuracy}, timestamp is $timestamp")
-                println("values")
-                println(values?.get(0))
-                println(values?.get(1))
-                println(values?.get(2))
-
-            })
+//                println("changed!")
+//                value.accelerometer?.let {// this accelerometer is null, so this block does not run.😅
+//                    log(it)
+//                }
+            }
+        )
     }
 
     override fun onPause() {
@@ -44,12 +38,25 @@ class MainActivity : AppCompatActivity() {
 
         this.viewModel.sensorLiveData.value?.let { sensorData ->
             // Do something with sensor data
-            val accelerometer = sensorData.accelerometer
-            println("accelerometer")
-            println(accelerometer?.values?.get(0))
-            println(accelerometer?.values?.get(0))
-            println(accelerometer?.values?.get(0))
-            println(accelerometer?.accuracy)
+            sensorData.accelerometer?.let { log(it) }
         }
     }
+}
+
+fun log(accelerometer: SensorEventObject) {
+    println("********accelerometer**********")
+
+    println("value: ")
+    println(accelerometer.values[0])
+    println(accelerometer.values[1])
+    println(accelerometer.values[2])
+
+    println("accuracy: ${accelerometer.accuracy}")
+
+    println("timestamp: ${accelerometer.timestamp}")
+
+    val date = Date(accelerometer.timestamp)
+    println("timestamp date: ${date}")
+
+    println("* * * * * * * * * * * * * * * *")
 }
