@@ -27,6 +27,8 @@ class SensorLiveData(
                     when (sensorEvent.sensor.type) {
                         Sensor.TYPE_ACCELEROMETER ->
                             value?.accelerometer = sensorEventObject
+                        Sensor.TYPE_ACCELEROMETER_UNCALIBRATED ->
+                            value?.accelerometer = sensorEventObject
 
                         Sensor.TYPE_GYROSCOPE ->
                             value?.gyroscope = SensorEventObject(sensorEvent)
