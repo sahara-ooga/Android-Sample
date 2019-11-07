@@ -54,12 +54,15 @@ class MyContext private constructor(private val context: Context) {
 ## 検証
 
 ```kotlin
-@RunWith(AndroidJUnit4::class)//Robolectricのものと自動で切り替わる
-@Config(sdk = [Build.VERSION_CODES.O]) // 動作対象バージョンの指定ができます
+//Robolectric使用の単体テストコード
+@RunWith(AndroidJUnit4::class)
+@Config(sdk = [Build.VERSION_CODES.O])
 class ExampleUnitTest {
     @Test
     fun test_context() {
         val applicationContext = MyContext.applicationContext
+        // Logcatに表示される：
+        // D/Context: com.example.applicationcontext.MyApplication@c4fb85e
     }
 }
 ```
