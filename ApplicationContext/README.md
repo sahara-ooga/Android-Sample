@@ -61,6 +61,7 @@ class ExampleUnitTest {
     @Test
     fun test_context() {
         val applicationContext = MyContext.applicationContext
+        Log.d("Context", applicationContext.toString())
         // Logcatに表示される：
         // D/Context: com.example.applicationcontext.MyApplication@c4fb85e
     }
