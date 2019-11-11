@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    // TODO: スコープを狭めたい
+    // TODO: `Dispatchers`をサブスレッド対応にする
     private fun onParallelGetButtonClick() = GlobalScope.launch(Dispatchers.Main) {
         val http = HttpUtil()
         async(Dispatchers.Default) { http.httpGET1(URL) }.await().let {
