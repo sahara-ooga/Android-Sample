@@ -22,6 +22,11 @@ TODO: サブスレッドで通信を行いメインスレッドでUIを更新す
 
 [図で理解する Kotlin Coroutine - Qiita](https://qiita.com/kawmra/items/d024f9ab32ffe0604d39)
 
+#### Library using coroutine
+
+[k-kagurazaka/async-permissions: Easy handling for Android-M permission based on async/await](https://github.com/k-kagurazaka/async-permissions)
+
+[Android Mのパーミッション制御をKotlinのasync/awaitで簡単にした - Qiita](https://qiita.com/k-kagurazaka@github/items/b0d4b2042a5b1ebcbf79)
 
 ### Connection
 
