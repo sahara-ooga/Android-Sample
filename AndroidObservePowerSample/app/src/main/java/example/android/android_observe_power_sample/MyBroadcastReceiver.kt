@@ -39,6 +39,9 @@ class MyBroadcastReceiver : BroadcastReceiver() {
         val startIntent = Intent(context, MainActivity::class.java).apply {
             putExtra("example.android.android_observe_power_sample", message)
         }
+
+        //フラグをセットしないとアプリが落ちてしまう(ContextがApplication由来でActivityと一致しないため）
+        startIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         context?.startActivity(startIntent)
     }
 }

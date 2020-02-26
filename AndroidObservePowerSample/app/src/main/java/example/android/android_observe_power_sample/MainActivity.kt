@@ -17,6 +17,6 @@ class MainActivity : AppCompatActivity() {
             addAction(Intent.ACTION_POWER_DISCONNECTED)
             addAction(Intent.ACTION_POWER_CONNECTED)
         }
-        registerReceiver(MyBroadcastReceiver(), intentFilter)
+        application.registerReceiver(MyBroadcastReceiver(), intentFilter)
     }
 }
