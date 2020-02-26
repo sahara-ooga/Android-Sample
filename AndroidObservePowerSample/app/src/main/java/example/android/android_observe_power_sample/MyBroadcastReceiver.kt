@@ -30,11 +30,15 @@ class MyBroadcastReceiver : BroadcastReceiver() {
     }
 
     private fun startActivity(message: String, context: Context?) {
+        /**
+         * 前回の起動から一定時間を経過していればまた起動する
+         * */
         val now = System.currentTimeMillis()
         val difsec = (now - lastOpenDate) / 1000L
         if (difsec < OPEN_APP_THRESHOLD) {
             return
         }
+        lastOpenDate = now
 
         val startIntent = Intent(context, MainActivity::class.java).apply {
             putExtra("example.android.android_observe_power_sample", message)
