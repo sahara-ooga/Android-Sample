@@ -131,6 +131,17 @@ class MyApp : Application(), LifecycleOwner {
 }
 ```
 
+起動時にMyAppがインスタンス化されるように、AndroidManifest.xmlに追記します。
+
+```xml
+    <application
+        android:name=".MyApp"
+        android:theme="@style/AppTheme">
+        ...
+    </application>
+
+```
+
 LiveDataのObserverを実装します。実際にアプリの状態が変化した際に行う処理をActivityなどで記述することができます。
 
 ```kotlin:MainActivity.kt
