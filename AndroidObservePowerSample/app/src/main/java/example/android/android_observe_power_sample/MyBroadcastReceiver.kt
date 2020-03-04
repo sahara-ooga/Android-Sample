@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import androidx.lifecycle.ProcessLifecycleOwner
 
 
 class MyBroadcastReceiver : BroadcastReceiver() {
@@ -30,6 +31,11 @@ class MyBroadcastReceiver : BroadcastReceiver() {
     }
 
     private fun startActivity(message: String, context: Context?) {
+        /**
+         * TODO: すでにアプリの画面が開かれていれば起動処理をしない
+         * */
+        val lifecycleState = ProcessLifecycleOwner.get().lifecycle.currentState
+
         /**
          * 前回の起動から一定時間を経過していればまた起動する
          * */
