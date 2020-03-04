@@ -9,6 +9,20 @@ LifecycleOwner, LifecycleRegistry, LiveData
 
 ## 実装の概要
 
+### build.gradle
+
+```groovy
+apply plugin: "kotlin-kapt"
+
+...
+
+dependencies {
+...
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    kapt "android.arch.lifecycle:compiler:1.1.1"
+}
+```
+
 ### LifecycleObserver アプリの状態を掴む
 
 LifecycleObserverを実装します。アプリの状態を監視します。ここにイベント発生時の処理を書くこともできます。
